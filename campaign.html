@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>תלמידים</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/Hebrew.json"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <button id="createcampaign">צור קמפיין
+        <i class="fas fa-plus"></i>
+    </button>
+    <table id="studentTable" class="compact" style="width:100%">
+        <thead>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input rel="2" type="text" class="search" name="שם" placeholder="שם" > </td>
+                <td><input rel="3" type="text" class="search" name="משפחה" placeholder="משפחה"></td>
+                <td><input rel="4" type="text" class="search" name="תז" placeholder="תז"></td>
+                <td><input rel="5" type="text" class="search" name="סוג_זיהוי" placeholder="סוג זיהוי"></td>
+                <td><input rel="6" type="text" class="search" name="מדינה" placeholder="מדינה"></td>
+                <td><input rel="7" type="text" class="search" name="סוג_לימוד" placeholder="סוג לימוד"></td>
+                <td><input rel="8" type="text" class="search" name="תאריך_לידה" placeholder="תאריך לידה"></td>
+                <td><input rel="9" type="text" class="search" name="תאריך_קליטה" placeholder="תאריך קליטה"></td>
+                <td><input rel="10" type="text" class="search" name="שם_קבוצה" placeholder="שם קבוצה"></td>
+                <td><input rel="11" type="text" class="search" name="שם_קבוצה_צהריים" placeholder="שם קבוצה צהריים"></td>
+                <td><input rel="12" type="text" class="search" name="טלפון" placeholder="טלפון"></td>
+                <td><input rel="13" type="text" class="search" name="טלפון_אשה" placeholder="טלפון אשה"></td>
+                <td><input rel="14" type="text" class="search" name="טלפון_בית" placeholder="טלפון בית"></td>
+                <td><input rel="15" type="text" class="search" name="מייל" placeholder="מייל"></td>
+                <td><input rel="16" type="text" class="search" name="נשוי_רווק" placeholder="נשוי/רווק"></td>
+                <td><input rel="17" type="text" class="search" name="שם_מוסד_מלא" placeholder="שם מוסד מלא"></td>
+                <td><input rel="18" type="text" class="search" name="כתובת_הסניף" placeholder="כתובת הסניף"></td>
+                <td><input rel="19" type="text" class="search" name="מספר_סניף" placeholder="מספר סניף"></td>
+                <td><input rel="20" type="text" class="search" name="גיל" placeholder="גיל"></td>
+                <td><input rel="21" type="text" class="search" name="כתובת_התלמיד" placeholder="כתובת התלמיד"></td>
+                <td><input rel="22" type="text" class="search" name="כתובת_הקבוצה" placeholder="כתובת הקבוצה"></td>
+                <td><input rel="23" type="text" class="search" name="שם_ביהמד_של_הקבוצה" placeholder="שם ביהמד של הקבוצה"></td>
+                <td><input rel="24" type="text" class="search" name="מייל_אחראי" placeholder="מייל אחראי"></td>
+                <td><input rel="25" type="text" class="search" name="שם_ראש_הקבוצה" placeholder="שם ראש הקבוצה"></td>
+                <td><input rel="26" type="text" class="search" name="מייל_ראש_הקבוצה" placeholder="מייל ראש הקבוצה"></td>
+                <td><input rel="27" type="text" class="search" name="שם_הבנק" placeholder="שם הבנק  "></td>
+                <td><input rel="28" type="text" class="search" name="מספר_סניף" placeholder="מספר סניף  "></td>
+                <td><input rel="29" type="text" class="search" name="מספר_חשבון" placeholder="מספר חשבון  "></td>
+                             
+            </tr>
+           
+            <tr>
+                <th><input type="checkbox" id="selectAll"></th>
+                <th>תמונה</th>
+                <th>שם</th>
+                <th>משפחה</th>
+                <th>תז</th>
+                <th>סוג זיהוי</th>
+                <th>מדינה</th>
+                <th>סוג לימוד</th>
+                <th>תאריך לידה</th>
+                <th>תאריך קליטה</th>
+                <th>שם קבוצה</th>
+                <th>שם קבוצה צהריים</th>
+                <th>טלפון</th>
+                <th>טלפון אישה</th>
+                <th>טלפון בית</th>
+                <th>מייל</th>
+                <th>נשוי/רווק</th>
+                <th>שם מוסד מלא</th>
+                <th>כתובת הסניף</th>
+                <th>מספר סניף</th>
+                <th>גיל</th>
+                <th>כתובת התלמיד</th>
+                <th>כתובת הקבוצה</th>
+                <th>שם ביהמד של הקבוצה</th>
+                <th>מייל אחראי</th>
+                <th>שם ראש הקבוצה</th>
+                <th>מייל ראש הקבוצה</th>
+                <th>שם הבנק</th>
+                <th>מספר סניף</th>
+                <th>מספר חשבון</th>
+                
+            </tr>
+            
+
+        </thead>
+        
+
+        <tbody></tbody>
+    </table>
+
+    <div id="cameraModal" class="modal">
+        <div class="modal-content">
+            <span class="closeCamera">&times;</span>
+
+                <h1>צלם תמונה</h1>
+
+                <button id="cameraButton" style="display: none;">צלם תמונה
+                    <i class="fas fa-camera"></i>
+                </button>
+                <button id="changePicture" style="display:none"> שנה תמונה</button>
+
+                <input type="text" id="imageData" name="imageData" style="display:none"]]>
+                
+                <video id="videoPreview" width="160" height="120" style="display: none;"></video>
+                <canvas id="canvas" width="160" height="120" style="display: none;"></canvas>
+
+                
+
+                <button type="button" id="savePicture" style="display: none;">שמור תמונה</button>
+        </div>
+    </div>
+
+
+    <div id="loading-overlay" style="display:none">
+        <div class="spinner"></div>
+    </div>
+
+
+      <div id="imageModal" class="modal">
+        <div class="modal-content-img">
+          <span class="closeImage">&times;</span>
+          <button id="editPicture"><i class="fas fa-edit"></i></button>
+          <br>
+          <br>
+          <img id="modalImage" src="" alt="Modal Image" width="0.5" height = "0.5">
+        </div>
+      </div>
+
+
+    <div id ="chooseSystem" class="container" style="display:none">
+        <div class="card">
+            <form  dir="rtl">
+                <h1>כניסה למערכת</h1>
+                <button id="reset" style="display:none">איפוס נתונים
+                    <i class="fas fa-undo"></i>
+                </button>
+
+                <label for="userName"> שם משתמש:</label>
+                <input type="text" id="userName" name="userName" value = "025089532" required>
+                <label for="password"> סיסמא:</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Enter your password" value = "7974153">
+                    <span class="toggle-password" id="toggle-password">
+                      <i class="fa fa-eye"></i>
+                    </span>
+                  </div>
+                <button id="login">כניסה
+                    <i class="fas fa-sign-in-alt" style="margin-left: 5px;"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id ="myForm" class="container" style="display:none">
+
+        <div class="card">
+            <form  dir="rtl">
+                <h1>יצירת קמפיין</h1>
+
+                <label for="name"> שם הקמפיין:</label>
+                <div  id="defaultText" style="display:none"></div>
+                <input type="text" id="name" name="name" required>
+
+                <label for="caller_id">בחירת זיהוי:</label>
+                <select id="caller_id" name="caller_id" required>
+                </select>
+                <label for="info">שדות למידע הנוסף:</label>
+                <select id="info" name="info" required>
+                    <option value="שם">שם</option>
+                    <option value="משפחה">משפחה</option>
+                    <option value="תז">תז</option>
+                    <option value="סוג זיהוי">סוג זיהוי</option>
+                    <option value="מדינה">מדינה</option>
+                    <option value="סוג לימוד">סוג לימוד</option>
+                    <option value="תאריך לידה">תאריך לידה</option>
+                    <option value="תאריך קליטה">תאריך קליטה</option>
+                    <option value="שם קבוצה">שם קבוצה</option>
+                    <option value="שם קבוצה צהריים">שם קבוצה צהריים</option>
+                    <option value="טלפון אישה">טלפון אישה</option>
+                    <option value="טלפון בית">טלפון בית</option>
+                    <option value="מייל">מייל</option>
+                    <option value="נשוי/רווק">נשוי/רווק</option>
+                    <option value="שם מוסד מלא">שם מוסד מלא</option>
+                    <option value="כתובת הסניף">כתובת הסניף</option>
+                    <option value="מספר סניף">מספר סניף</option>
+                    <option value="גיל">גיל</option>
+                    <option value="כתובת התלמיד">כתובת התלמיד</option>
+                    <option value="כתובת הקבוצה">כתובת הקבוצה</option>
+                    <option value="שם ביהמד של הקבוצה">שם ביהמד של הקבוצה</option>
+                    <option value="מייל אחראי">מייל אחראי</option>
+                    <option value="שם ראש הקבוצה">שם ראש הקבוצה</option>
+                    <option value="מייל ראש הקבוצה">מייל ראש הקבוצה</option>
+                    <option value="שם הבנק">שם הבנק</option>
+                    <option value="מספר סניף">מספר סניף</option>
+                    <option value="מספר חשבון">מספר חשבון</option>
+                </select>
+                
+
+                <div id="listContainer">
+
+                <ul id="myList"></ul>
+                </div>
+
+
+                <input type="file" id="audioFile" accept="audio/*">
+                <label for="audio">הוסף קובץ שמע:</label>
+                <audio controls id="audioPlayer">
+                    Your browser does not support the audio element.
+                </audio>
+                <br>
+                <br>
+                <button id="submit">שלח
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="camera.js"></script>
+    <script src="form.js"></script>
+    <script src="login.js"></script>
+    <script src="table.js"></script>
+
+    <script>
+        var base_url  = "https://www.call2all.co.il/ym/api/"
+        var token = "025089532:7974153"
+        var stream;
+        var rowData
+        var templateId
+        var SelectedRows
+        // camera
+        const videoPreview = $('#videoPreview')[0];
+        const canvas = $('#canvas')[0];
+        const context = canvas.getContext('2d');
+        var data = [
+        {
+
+            "תמונה": "data:image/jpeg;base64,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",
+
+            "שם": "אברהם",
+            "משפחה": "גרוס",
+            "תז": "120456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "0583208375",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "a.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הארי טרומן 29 , ירושלים",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "987654321",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת 2",
+            "שם קבוצה צהריים": "קבוצת 2 בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :123,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+
+            "שם": "יהודה",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "מכללת הטכנולוגיה של ירושלים",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"פועלים",
+            "מספר סניף" :923,
+            "מספר חשבון": 6587412
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "גרוס",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-4161648",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"פאגי",
+            "מספר סניף" :923,
+            "מספר חשבון": 4138569
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "כהן",
+            "תז": "123456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "054-1234567",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "abigail.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הרקפת 5, תל אביב",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "987654322",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת מחקר",
+            "שם קבוצה צהריים": "קבוצת מחקר בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "יהודה",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "מכללת הטכנולוגיה של ירושלים",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "מלכה",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-9876543",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "כהן",
+            "תז": "123456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "054-1234567",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "abigail.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הרקפת 5, תל אביב",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "98765432",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת מחקר",
+            "שם קבוצה צהריים": "קבוצת מחקר בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "יהודה",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "מכללת הטכנולוגיה של ירושלים",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"פועלים",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "מלכה",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-9876543",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "א2ברהם",
+            "משפחה": "גרוס",
+            "תז": "123456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "0583272127",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "a.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הארי טרומן 29 , ירושלים",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "984654321",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת 2",
+            "שם קבוצה צהריים": "קבוצת 2 בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :123,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "יהודה",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "מכללת הטכנולוגיה של ירושלים",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"פועלים",
+            "מספר סניף" :923,
+            "מספר חשבון": 6587412
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "גרוס",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-4161648",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"פאגי",
+            "מספר סניף" :923,
+            "מספר חשבון": 4138569
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "כהן",
+            "תז": "123456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "054-1234567",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "abigail.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הרקפת 5, תל אביב",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "987654321",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת מחקר",
+            "שם קבוצה צהריים": "קבוצת מחקר בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "יהודה",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "מכללת הטכנולוגיה של ירושלים",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "מלכה",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-9876543",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "כהן",
+            "תז": "123456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "054-1234567",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "abigail.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הרקפת 5, תל אביב",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "987654321",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת מחקר",
+            "שם קבוצה צהריים": "קבוצת מחקר בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "יהודה",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "מכללת הטכנולוגיה של ירושלים",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"פועלים",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+
+            "שם": "אביגיל",
+            "משפחה": "מלכה",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-9876543",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אברהם",
+            "משפחה": "גרוס",
+            "תז": "123456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "0583208375",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "a.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הארי טרומן 29 , ירושלים",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "987654321",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת 2",
+            "שם קבוצה צהריים": "קבוצת 2 בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :123,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "יהודה",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "מכללת הטכנולוגיה של ירושלים",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"פועלים",
+            "מספר סניף" :923,
+            "מספר חשבון": 6587412
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "גרוס",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-4161648",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"פאגי",
+            "מספר סניף" :923,
+            "מספר חשבון": 4138569
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "כהן",
+            "תז": "123456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "054-1234567",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "abigail.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הרקפת 5, תל אביב",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "987654321",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת מחקר",
+            "שם קבוצה צהריים": "קבוצת מחקר בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "יהודה",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "מכללת הטכנולוגיה של ירושלים",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "מלכה",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-9876543",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "כהן",
+            "תז": "123456789",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "עיון",
+            "תאריך לידה": "1995-07-15",
+            "תאריך קליטה": "2022-09-01",
+            "שם קבוצה": "קבוצה 1",
+            "שם קבוצה צהריים": "קבוצה 1",
+            "טלפון": "054-1234567",
+            "טלפון אשה": "054-9876543",
+            "טלפון בית": "02-5555555",
+            "מייל": "abigail.cohen@email.com",
+            "נשוי/רווק":"נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "סנהדריה המורחבת 410",
+            "מספר סניף": "12345",
+            "גיל": 27,
+            "כתובת התלמיד": "רחוב הרקפת 5, תל אביב",
+            "כתובת הקבוצה": "רחוב האורז 20, ירושלים",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_school@email.com",
+            "שם ראש הקבוצה": "כהן",
+            "מייל ראש הקבוצה": "maya.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "ישראל",
+            "משפחה": "כהן",
+            "תז": "987654321",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "בקיאות",
+            "תאריך לידה": "1990-03-25",
+            "תאריך קליטה": "2018-10-01",
+            "שם קבוצה": "קבוצת מחקר",
+            "שם קבוצה צהריים": "קבוצת מחקר בצהריים",
+            "טלפון": "052-5556667",
+            "טלפון אשה": "052-3334445",
+            "טלפון בית": "03-1234567",
+            "מייל": "israel.levi@email.com",
+            "נשוי/רווק": "נשוי",
+            "שם מוסד מלא": "בית התלמוד",
+            "כתובת הסניף": "רחוב החורש 15, תל אביב",
+            "מספר סניף": "56789",
+            "גיל": 32,
+            "כתובת התלמיד": "רחוב הנחלים 7, פתח תקווה",
+            "כתובת הקבוצה": "רחוב האורנים 30, חיפה",
+            "שם ביהמד של הקבוצה": "בית התלמוד",
+            "מייל אחראי": "admin_university@email.com",
+            "שם ראש הקבוצה": "לוי",
+            "מייל ראש הקבוצה": "yaell.cohen@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "כהן",
+            "תז": "555666777",
+            "סוג זיהוי": "ת.ז",
+            "מדינה": "ישראל",
+            "סוג לימוד": "קורס מקצועי",
+            "תאריך לידה": "1988-12-10",
+            "תאריך קליטה": "2020-03-15",
+            "שם קבוצה": "קבוצת פיתוח",
+            "שם קבוצה צהריים": "קבוצת פיתוח בצהריים",
+            "טלפון": "050-1234567",
+            "טלפון אשה": "050-9876543",
+            "טלפון בית": "04-5555555",
+            "מייל": "yehuda.cohen@email.com",
+            "נשוי/רווק": "רווק",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב ההסתדרות 8, ירושלים",
+            "מספר סניף": "67890",
+            "גיל": 33,
+            "כתובת התלמיד": "רחוב האשל 12, חיפה",
+            "כתובת הקבוצה": "רחוב המזוזה 25, תל אביב",
+            "שם ביהמד של הקבוצה": "מחלקת פיתוח תוכנה",
+            "מייל אחראי": "admin_college@email.com",
+            "שם ראש הקבוצה": "דן כהן",
+            "מייל ראש הקבוצה": "dan.cohen@email.com",
+            "שם הבנק":"פועלים",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        },
+        {
+            "תמונה": "",
+            "שם": "אביגיל",
+            "משפחה": "מלכה",
+            "תז": "111222333",
+            "סוג זיהוי": "דרכון",
+            "מדינה": "ישראל",
+            "סוג לימוד": "מסלול אקדמי",
+            "תאריך לידה": "1993-05-20",
+            "תאריך קליטה": "2019-08-01",
+            "שם קבוצה": "23קבוצת חקר",
+            "שם קבוצה צהריים": "קבוצת חקר בצהריים",
+            "טלפון": "053-9876543",
+            "טלפון אשה": "053-1234567",
+            "טלפון בית": "03-7777777",
+            "מייל": "rachel.malka@email.com",
+            "נשוי/רווק": "רווקה",
+            "שם מוסד מלא": "אוניברסיטת חיפה",
+            "כתובת הסניף": "רחוב התמר 6, חיפה",
+            "מספר סניף": "11223",
+            "גיל": 28,
+            "כתובת התלמיד": "רחוב הרמון 15, תל אביב",
+            "כתובת הקבוצה": "רחוב השקד 40, ירושלים",
+            "שם ביהמד של הקבוצה": "מחלקת פסיכולוגיה",
+            "מייל אחראי": "admin_university2@email.com",
+            "שם ראש הקבוצה": "דר דב רן",
+            "מייל ראש הקבוצה": "dov.ran@email.com",
+            "שם הבנק":"לאומי",
+            "מספר סניף" :923,
+            "מספר חשבון": 8569741
+
+        }
+        ]
+        
+        $(document).ready(function () {
+
+            //table
+            var table = initializeDataTable('studentTable', data);
+
+            $('#studentTable').on('click', '.cameraButton', function (event) {
+
+                rowData = table.row($(this).closest('tr')).data();
+                openCameraModal();
+                handleCameraCapture()
+            });
+
+            $('#studentTable tbody').on('click', '.select-row', function () {
+                var checked = this.checked;
+                $(this).closest('tr').toggleClass('selected',checked);
+            });
+
+            $('#selectAll').change(function () {
+                var rows = table.rows({ page: 'current' }).nodes();
+                    
+                $(rows).find(':checkbox').prop('checked', $(this).is(':checked'));
+                $(this).closest('tr').toggleClass('selected',this.checked);
+                $('#studentTable tbody tr').toggleClass('selected', this.checked);
+
+            });
+            
+            $('input.search').on('keyup change', function () {
+                var rel = $(this).attr("rel");
+                table.columns(rel).search(this.value).draw();
+            });
+
+
+            $('#studentTable tbody').on('click', 'img.image-popup', function () {
+                rowData = table.row($(this).closest('tr')).data();
+                var imageUrl = $(this).attr('src');
+                $('#modalImage').attr('src', imageUrl);
+
+                $("#imageModal").css("display", "block");
+
+            });
+
+
+            $('#cameraButton').on('click', function(event) {
+                event.preventDefault()
+                handleCameraCapture()
+
+            });
+
+
+            $('#editPicture').on('click', function(event) {
+                event.preventDefault()
+                $("#imageModal").css("display", "none");
+                openCameraModal();
+                handleCameraCapture()
+
+            });
+
+
+            $('#changePicture').on('click', function(event) {
+                event.preventDefault()
+                changePicture()
+            });
+
+            $('#savePicture').on('click', function(event) {
+                savePicture()
+
+            });
+
+            $('.closeCamera').on('click', function(event) {
+                
+                closeCameraModal();
+
+            });
+
+            $('.closeImage').on('click', function(event) {
+                
+                $("#imageModal").css("display", "none");
+
+            });
+
+            //login
+
+            $("#toggle-password").click(function() {
+                togglePassword();
+            });
+
+            $("#login").on("click", function () {
+                login($('#userName').val(),$('#password').val())
+                getCallerIds()
+
+            });
+            
+            $('#chooseSystem').on('submit', function (event) {
+                event.preventDefault();
+            })
+
+            $("#reset").on("click", function () {
+                $('#userName').val('025089532')
+                $('#password').val('7974153')
+                $('#reset').hide()
+                            
+            });
+
+            //form
+            $('#myForm').on('submit', function (event) {
+                event.preventDefault();
+            })
+
+            $('#createcampaign').on('click', function () {
+                createcampaign(table,data)                                                                                                      
+            });
+            
+            $.each(["משפחה","שם קבוצה","טלפון בית"], function(index, value){
+                var newItem = $("<li>").text(value);
+                var removeIcon = $("<i>").addClass("fas fa-minus-circle remove-icon");
+                newItem.append(removeIcon);
+                $("#myList").append(newItem);
+                $('#info option[value="'+ value+ '"]').remove();
+            });
+
+            $("#info").on('change', function () {
+                    var newItem = $("<li>").text($(this).val());
+                    var removeIcon = $("<i>").addClass("fas fa-minus-circle remove-icon");
+                    newItem.append(removeIcon);
+                    $("#myList").append(newItem);
+                    $('#info option[value="'+ $(this).val() + '"]').remove();
+                
+            });
+
+            $("#name").on('input', function () {
+                var userInput = $("#name").val();
+                if (userInput.indexOf($("#defaultText").text()) !== 0) {
+                    $("#name").val($("#defaultText").text() + userInput.slice($("#defaultText").text().length));
+                }
+                if (($("#defaultText").text() + userInput.slice($("#defaultText").text().length)).length >127){
+                    $("#name").val($("#defaultText").text() + userInput.slice($("#defaultText").text().length))
+                    $("#name").val($("#name").val().slice(0,127))
+                    alert("שם הקמפיין יכול להכיל עד 127 תווים")
+                }
+
+
+            });
+
+            $("#myList").on('click', '.remove-icon', function () {
+                $(this).closest('li').remove();
+                $("#info").append('<option value="' + $(this).closest('li').text() + '">' + $(this).closest('li').text() + '</option>');
+
+            });
+
+            $('#submit').on('click', async function () {
+                try {
+
+                    showLoadingIndicator();
+
+                    var result = await createTemplate();
+                    hideLoadingIndicator();
+                    if (result === true) {
+                        Swal.fire({
+                            title: 'success!',
+                            text: 'הקמפיין רץ בהצלחה',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                } catch (error) {
+                    hideLoadingIndicator();
+                    console.error("An error occurred:", error);
+                }
+
+                return false;
+            });
+
+            $('#audioFile').on('change', function (e) {
+                var file = e.target.files[0];
+                if (file) {
+                    var audioURL = URL.createObjectURL(file);
+                    $('#audioPlayer').attr('src', audioURL);
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+
